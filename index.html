@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercice_4</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <form>
+    <label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" />
+    <label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" />
+    <label for="city">Ville : </label><input type="text" name="city" id="city" />
+    <!--onclick= au clic sur le boutton j'exécute ma fonction result-->
+    <button  name="submit" id="submit" onclick="result()">Valider</button>
+  </form>
+  <script type="text/javascript">
+  //je récupère la fonction result() initialisée dans le button "submit"
+  function result(){
+    //j'initialise mes variables
+    var regexText = /^[a-zA-Z]+$/;//je créer ma regex qui indique les caractères acceptés uniquement.
+    var lastname = document.getElementById('lastname').value;//je récupère la valeure de mon input grace à son id.
+    var firstname = document.getElementById('firstname').value;
+    var city = document.getElementById('city').value;
+    var result = 'Nom : ' + lastname + '\nPrénom : ' + firstname +  '\nVille : ' + city;
+    //je vérifie que la valeur des champs rentré par l'utilisateur correspondent à ma regex.
+    if((regexText.test(lastname)==true) && (regexText.test(firstname)==true) && (regexText.test(city)==true)){
+      //donc si = à true j'affiche le résultat.
+      alert(result);
+    }else{
+      //sinon j'affiche le message d'erreur dans une boite de dialogue.
+      alert('veuillez rentrer les bonnes infos');
+    }
+  }
+  </script>
+</body>
+</html>
